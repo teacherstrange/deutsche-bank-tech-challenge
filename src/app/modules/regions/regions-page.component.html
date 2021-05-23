@@ -1,0 +1,30 @@
+<h1>Regions</h1>
+<h4>Please select one of the provided regions:</h4>
+
+<!-- The region selector -->
+<div class="selector-container">
+  <app-regions-selector
+    [value]="selectedRegionValue$ | async"
+    [regions]="regions"
+    (change)="onRegionChange($event)"
+  ></app-regions-selector>
+</div>
+
+<app-error-message *ngIf="error$ | async as error" [message]="error"></app-error-message>
+
+<!-- The countries selector -->
+<ng-container *ngIf="selectedRegionValue$ | async as value">
+  <h4>Please select one of the provided country:</h4>
+  <div class="selector-container">
+    <app-regions-selector
+      [value]="selectedCountry"
+      [regions]="selectedRegionCountries$ | async | options : 'name'"
+      [disabled]="countriesLoading$ | async"
+      (change)="onCountryChange($event)"
+    ></app-regions-selector>
+    <mat-spinner diameter="25" *ngIf="countriesLoading$ | async" style="display: inline-block"></mat-spinner>
+  </div>
+</ng-container>
+
+<router-outlet></router-outlet>
+

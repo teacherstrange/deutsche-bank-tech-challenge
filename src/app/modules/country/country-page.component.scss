@@ -1,0 +1,22 @@
+.country-page-content {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, .05);
+  padding-top: 1rem;
+
+  .country-flag {
+    max-width: 32px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .table-container {
+    padding: 1rem;
+    background: rgba(0, 0, 0, .05);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: inset 2px 0 5px rgba(0, 0, 0, 0.05);
+
+    table {
+      width: 100%;
+    }
+  }
+}
